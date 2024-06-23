@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <meta charset="UTF-8">
+    <h1>მოძებნეთ თქვენთვის სასურველი ფილმი</h1>
+    <form method="post">
+        <label for="movie">ფილმის სახელი:</label>
+        <input type="text" id="movie" name="movie">
+        <button type="submit">მოძებნეთ ფილმი</button>
+    </form>
+
+    {% if movie_info %}
+        {% if movie_info.Error %}
+            <h2>{{ movie_info.Error }}</h2>
+        {% else %}
+            <p>სახელი: {{ movie_info.Title }}</p>
+            <p>გამოშვების წელი: {{ movie_info.Year }}</p>
+            <p>ჟანრი: {{ movie_info.Genre }}</p>
+            <p>დირექტორი: {{ movie_info.Director }}</p>
+            <p>რეიტინგი: {{ movie_info.imdbRating }}</p>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

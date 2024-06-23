@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h1>List of Movies</h1>
+    <div>
+        {% for movie in movies %}
+        <div style="margin-bottom: 20px;">
+            <h2>{{ movie.title }}</h2>
+            <img src="{{ movie.image_url }}" alt="{{ movie.title }} Image" style="max-height: 300px;">
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
